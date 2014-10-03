@@ -1,0 +1,76 @@
+<!--
+Copyright 2014 Michael Krolikowski
+
+Licensed under the Apache License, Version 2.0 (the "License");
+you may not use this file except in compliance with the License.
+You may obtain a copy of the License at
+
+    http://www.apache.org/licenses/LICENSE-2.0
+
+Unless required by applicable law or agreed to in writing, software
+distributed under the License is distributed on an "AS IS" BASIS,
+WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+See the License for the specific language governing permissions and
+limitations under the License.
+-->
+<!DOCTYPE html>
+<html lang="en" ng-app="shurl">
+<head>
+<title>ShUrl</title>
+<meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport"
+	content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+<link rel="stylesheet" href="/shurl.css">
+<script src="/shurl.js"></script>
+</head>
+<body>
+	<div class="container">
+		<h1>ShUrl</h1>
+		<div ng-view></div>
+	</div>
+
+	<script type="text/ng-template" id="main.html">
+		<form role="form">
+			<div class="form-group" ng-class="{'has-error': linkHasError}">
+				<label class="control-label" for="link">Link:</label> <input
+					type="url" class="form-control" id="link" ng-model="link">
+			</div>
+			<div class="form-group" ng-class="{'has-error': nameHasError}">
+				<label class="control-label" for="name">Name:</label> <input
+					type="text" class="form-control" id="name" ng-model="name">
+			</div>
+			<div ng-show="shortened">
+				<div class="row">
+					<div class="col-sm-6">
+						<div class="form-group">
+							<label class="control-label">ShUrl:</label>
+							<a disabled href="{{shortened}}" class="form-control">{{shortened}}</a>
+						</div>
+					</div>
+					<div class="col-sm-6">
+						<div class="form-group">
+							<label class="control-label">Statistics:</label>
+							<a disabled href="{{shortenedStats}}" class="form-control">{{shortenedStats}}</a>
+						</div>
+					</div>
+				</div>
+			</div>
+			<button type="button" class="btn btn-default"
+				ng-click="shorten(link, name)">Shorten</button>
+		</form>
+	</script>
+
+	<script type="text/ng-template" id="stats.html">
+		<div ng-hide="noGraphs">
+			<h2>Last 24 hours</h2>
+			<canvas id="last24HoursChart" width="600" height="150"></canvas>
+			<h2>Last 30 days</h2>
+			<canvas id="last30DaysChart" width="600" height="150"></canvas>
+		</div>
+		<div class="alert alert-warning" ng-show="noGraphs">
+			No statistics available
+		</div>
+	</script>
+</body>
+</html>

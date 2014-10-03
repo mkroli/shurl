@@ -1,0 +1,11 @@
+<configuration>
+	<appender name="stdout" class="ch.qos.logback.core.ConsoleAppender">
+		<encoder>
+			<pattern><![CDATA[%d{HH:mm:ss.SSS} %5level %logger{36} [%thread] - %msg%n]]></pattern>
+		</encoder>
+	</appender>
+
+	<root level="${loglevel:-info}">
+		<appender-ref ref="stdout" />
+	</root>
+</configuration>
