@@ -2,12 +2,18 @@ ShUrl
 =====
 An URL shortener which uses Cassnadra.
 
+Installation (Docker Compose)
+-----------------------------
+```
+docker-compose up -d
+```
+
 Installation (Docker)
 ---------------------
 
 Cassandra
 ```
-docker run -d --name cassandra poklet/cassandra
+docker run -d --name cassandra cassandra
 ```
 
 ShUrl
