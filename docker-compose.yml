@@ -1,0 +1,9 @@
+cassandra:
+  image: cassandra
+
+shurl:
+  build: .
+  links:
+    - cassandra
+  ports:
+    - 8080:8080
