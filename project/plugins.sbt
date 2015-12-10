@@ -13,12 +13,12 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
-addSbtPlugin("org.xerial.sbt" % "sbt-pack" % "0.6.1")
+addSbtPlugin("org.xerial.sbt" % "sbt-pack" % "0.7.7")
 
 addSbtPlugin("com.untyped" % "sbt-js" % "0.7")
 
 addSbtPlugin("com.untyped" % "sbt-less" % "0.7")
 
-addSbtPlugin("com.github.mkroli" % "sbt-webresource" % "0.1")
+addSbtPlugin("com.github.mkroli" % "sbt-webresource" % "0.2")
 
-addSbtPlugin("com.github.gseitz" % "sbt-release" % "0.8.5")
+addSbtPlugin("com.github.gseitz" % "sbt-release" % "1.0.0")

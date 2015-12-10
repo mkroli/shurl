@@ -91,8 +91,7 @@ trait DatabaseComponent {
       q.update("shurl", "visits")
         .`with`(q.incr("visits"))
         .where(q.eq("id", q.bindMarker))
-        .and(q.eq("time", q.bindMarker))
-        .using(q.ttl(31 * 24 * 60 * 60)))
+        .and(q.eq("time", q.bindMarker)))
 
     val fetchVisitsQuery = cluster.prepare(
       q.select("time", "visits")

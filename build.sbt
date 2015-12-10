@@ -19,23 +19,26 @@ organization := "com.github.mkroli"
 
 version := "0.1-SNAPSHOT"
 
-scalaVersion := "2.11.2"
+scalaVersion := "2.11.7"
 
 scalacOptions ++= Seq("-feature", "-unchecked", "-deprecation")
 
+resolvers += "bintray" at "http://jcenter.bintray.com"
+
 libraryDependencies ++= Seq(
-  "ch.qos.logback" % "logback-classic" % "1.1.2",
+  "ch.qos.logback" % "logback-classic" % "1.1.3",
   "com.typesafe.scala-logging" %% "scala-logging" % "3.1.0",
-  "com.typesafe" % "config" % "1.2.1",
-  "com.typesafe.akka" %% "akka-actor" % "2.3.6",
-  "com.typesafe.akka" %% "akka-slf4j" % "2.3.6",
-  "io.spray" %% "spray-can" % "1.3.1",
-  "io.spray" %% "spray-routing" % "1.3.1",
-  "org.json4s" %% "json4s-native" % "3.2.10",
-  "com.datastax.cassandra" % "cassandra-driver-core" % "2.1.1",
-  "org.xerial.snappy" % "snappy-java" % "1.0.5",
-  "net.jpountz.lz4" % "lz4" % "1.2.0",
-  "com.github.nscala-time" %% "nscala-time" % "1.4.0"
+  "com.typesafe" % "config" % "1.3.0",
+  "com.typesafe.akka" %% "akka-actor" % "2.4.1",
+  "com.typesafe.akka" %% "akka-slf4j" % "2.4.1",
+  "io.spray" %% "spray-can" % "1.3.3",
+  "io.spray" %% "spray-routing" % "1.3.3",
+  "org.json4s" %% "json4s-native" % "3.3.0",
+  "com.datastax.cassandra" % "cassandra-driver-core" % "2.1.9",
+  "org.xerial.snappy" % "snappy-java" % "1.1.2",
+  "net.jpountz.lz4" % "lz4" % "1.3",
+  "com.github.nscala-time" %% "nscala-time" % "2.6.0",
+  "com.github.mkroli" %% "dns4s-akka" % "0.9"
 )
 
 unmanagedSourceDirectories in Compile <++= baseDirectory { base =>
@@ -57,5 +60,3 @@ packJvmOpts := Map("shurl" -> Seq("-Dlogback.configurationFile=${PROG_HOME}/etc/
 packExtraClasspath := Map("shurl" -> Seq("${PROG_HOME}/etc"))
 
 packGenerateWindowsBatFile := false
-
-releaseSettings
