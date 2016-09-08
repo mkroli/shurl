@@ -1,6 +1,6 @@
 ShUrl
 =====
-An URL shortener which uses Cassnadra.
+An URL shortener which uses Cassandra.
 
 Installation (Docker Compose)
 -----------------------------
